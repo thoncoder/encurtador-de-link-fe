@@ -58,3 +58,17 @@ formConsultar.addEventListener('submit', async (event)=> {
     }
 
 });
+
+const btnCopiar = document.getElementById("btnCopiar");
+btnCopiar.addEventListener("click", () => {
+    const txtToCopy = document.getElementById("urlEncurtada").innerText;
+    navigator.clipboard.writeText(txtToCopy)
+    .then (() => {
+        btnCopiar.innerText = "Copiado!";
+        setTimeout(() => {
+            btnCopiar.innerText = "Copiar";
+        }, 2000)
+    }).catch (error => {
+        console.error("Erro ao copiar: " +error);
+    })
+})

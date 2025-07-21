@@ -46,8 +46,13 @@ formConsultar.addEventListener('submit', async (event)=> {
         }
         const linkConsulta = document.getElementById("linkConsulta");
         const visitasConsulta = document.getElementById("visitasConsulta");
+        const criadoEmConsulta = document.getElementById("criadoEmConsulta");
+
+        const criadoEm = new Date(data.createdAt).toLocaleDateString("pt-BR");
+
         linkConsulta.innerText = data.originalUrl;
         visitasConsulta.innerText = data.visitas;
+        criadoEmConsulta.innerText = criadoEm;
         consulta_resultado.style.display = "block";
     } catch (error) {
         if (error.message = 404) {
